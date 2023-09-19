@@ -1,0 +1,110 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="olympics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="olympic_results">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="local_event" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="discipline" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="event_title" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="event_gender">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="medal_type">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="athlete">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute type="xs:string" name="ref" use="optional"/>
+                                                    <xs:attribute type="xs:string" name="country_id" use="optional"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute type="xs:string" name="id" use="optional"/>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="id" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="id" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="id" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="athletes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="athlete" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="athlete_full_name"/>
+                    <xs:element type="xs:string" name="athlete_year_birth"/>
+                    <xs:element type="xs:string" name="athlete_url"/>
+                    <xs:element type="xs:string" name="first_game"/>
+                    <xs:element type="xs:string" name="medals"/>
+                    <xs:element type="xs:string" name="n_participations"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="ref" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="countries">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="country" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="country_name"/>
+                    <xs:element type="xs:string" name="country_2_letter_code"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="country_id" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="hosts">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="host" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="game_name"/>
+                    <xs:element type="xs:string" name="game_location"/>
+                    <xs:element type="xs:string" name="game_season"/>
+                    <xs:element type="xs:dateTime" name="game_year"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="id" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
